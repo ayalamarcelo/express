@@ -1,0 +1,15 @@
+{
+  "name": "express",
+  "version": "1.0.0",
+  "description": "Vamos a tener la dependencia http, para eso `node:http` esto es un módulo nativo. Qué nos permite http, hacer procesos y conexiones con el protocolo http como por ejemplo crear un servidor y poder recibir request, peticiones.",
+  "main": "1.http.js",
+  "scripts": {
+   "dev": "nodemon 1.http.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}

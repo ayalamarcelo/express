@@ -47,3 +47,39 @@ Como se renderiza la codificación de los caracteres `res.setHeader('Content-Typ
 ## Status Codes
 
 # 26:23
+
+## Status Codes
+
+100-199: Respuestas informativas
+200-299: Respuestas satisfactorias
+300-399: Redirecciones
+400-499: Errores del cliente
+500-599: Errores del servidor
+
+Más típicos
+
+200 OK
+301 Moved Permanently
+400 Bad Request
+404 Not Found
+500 Internal Server Error
+
+`mdn web docs` Para más información.
+
+# Nodemon(Alternative to watch)
+
+`npm init -y`
+`npm install nodemon -D` como si fuese una dependencia de desarrollo con -D
+No hace falta hacerlo de forma global, al hacerlo de forma global significa que una persona que por lo que sea se está instalando este proyecto, no va a saber que necesita nodemon y además no vas a tener la opción de tener más de una versión de nodemon.
+Lo más fácil es ponerlo como dependencia y lo que se debe hacer es utilizar `scripts` (scripts de npm).
+
+`"dev": "nodemon 1.https.js"` una vez hecho esto.
+`npm run dev` además crea una capa de abstracción.
+Entras a un proyecto hace un `npm run` y vez todos los scripts disponibles y haces `npm run dev` y directamente esto ya te ejecuta nodemon y está funcionando perfectamente.
+
+# Evitar hacerlo de forma global
+
+Cada vez que cambiemos de versión de node, vamos a perder todos los paquetes que hemos instalado de forma global.
+
+## Headers
+
