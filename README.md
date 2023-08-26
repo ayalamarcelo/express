@@ -83,3 +83,12 @@ Cada vez que cambiemos de versión de node, vamos a perder todos los paquetes qu
 
 ## Headers
 
+# 37:21
+
+Tenemos el data que es un buffer, un buffer en nodejs es una clase global que la utilizan para trabajar con datos binarios. Si tu lees un archivo txt, una imágen o lo que sea. Lo que está pasando es que lee el archivo, pero no lo está leyendo como tu esperas. Lo que está leyendo son los datos binarios. Entonces lo guarda en un espacio de la memoria física y ahi en ese espacio reservado tiene esos datos de forma temporal para que puedas tratarlos. En este caso, estamos leyendo el fichero `./placa.png` no sabe que es una imágen, simplemente lo que hace es leer estos datos binarios, los deja reservados en un espacio y ese espacio reservado es un *buffer* ahi tendriamos esos datos, pero como datos binarios. Lo que estamos diciendo es, esos datos binarios quiero que me los envies a la respuesta, pero ojo esta respuesta es una imágen png. Y ahí es cuando ocurre la magia de la codificación. Donde el navegador, pese a que nosotros le estamos enviando los datos binarios tal y como lo hemos leido, como le estamos diciendo que es una imágen, entonces va a ser capaz de hacerlo. Los buffer son útiles trabajando con archivos, imágenes, criptografia para cualquier cosa que no sean cadenas de texto, números, planos, cosas así o json. Normalmente son útiles. Y son esenciales a la hora de trabajar con transmisiones de datos por como se leen los datos de archivos o para recibirlos a través de la red.
+
+# 39:05
+
+Así enviamos desde un servidor las imágenes.
+
+# 40:00
