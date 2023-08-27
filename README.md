@@ -92,3 +92,5 @@ Tenemos el data que es un buffer, un buffer en nodejs es una clase global que la
 Así enviamos desde un servidor las imágenes.
 
 # 40:00
+
+## Creating API + HTTP Methods
