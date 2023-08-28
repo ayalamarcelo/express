@@ -94,3 +94,100 @@ Así enviamos desde un servidor las imágenes.
 # 40:00
 
 ## Creating API + HTTP Methods
+
+Para crear nuestra primera api, vamos a tener diferentes métodos porque hasta ahora solo hemos tenido el método GET, el método get es que hace por efecto que una página web cuando tu entras a la url. Pero no es todos los métodos que existen. 
+
+# GET, HEAD, POST, PUT, DELETE, OPTIONS, PATCH.
+
+GET, para recuperar datos.
+HEAD, es exactamente lo mismo que el get, solo que se utiliza para pedirle que si se pueda hacer la petición que no hace falta que me des el body, no me importa el cuerpo de la petición, no quiero la respuesta del cuerpo, no quiero los datos. Lo único que quiero ver es la cabecera de respuesta. 
+*A veces se hace para saber si un usuario tiene permisos.*
+POST, para crear una entidad de un recurso.
+PUT, sería para reemplazar un recurso que ya existe. Actualizar una parte.
+DELETE, para eliminar un recurso.
+OPTIONS, te describe los recursos. Muchas veces es el problema que tienes con el CORS. Devuelve las cabeceras de CORS.
+POST, para crear un recurso entero.
+
+Post para crear, put para reemplazar todo el recurso y el patch para mmodificar parcialmente una parte de ese recurso.
+
+## Option Cors Method
+
+Rest api: vamos a tener un fichero al que le vamos a poder explicar cada uno de los recursos.
+
+`chunk.toString()` porque los datos que los datos que estamos enviando aqui:
+
+{ 
+    "name": "ditto",
+    "type": "normal",
+    "moves": [
+        "transform"
+    ]
+}
+
+Mientras estan enviandose es un dato binario pero cuando estamos llegando podemos transformar un binario a un string y al transformarlo directamente se va a codificar exactamente.
+
+Queremos enviar esto: 
+
+{ 
+    "name": "ditto",
+    "type": "normal",
+    "moves": [
+        "transform"
+    ]
+}
+
+que va a hacer *chunk*:
+
+### chunk 1
+{  
+    "na
+### chunk 2
+       me": "ditt
+### chunk 3
+                o",
+}
+
+No siempre va a llegar la misma longitud. Va siendo de forma progresiva. Al final tendremos todos los chunks que se habran juntado. Al `let body = ''`
+
+Con esto hemos terminado una api nativa.
+
+### Express
+
+# 58:35
+
+## Integrating Express
+
+Express es el framework más utilizado. Es un framework para node.js. Que te permite hacer aplicaciones web, apis.
+Vamos a ver cómo utilizar express para recrear lo que hemos hecho Qué diferencias hay, qué nos aporta express y cómo podemos migrar lo que hemos aprendido y cómo funciona pero a express, y en qué nos ayuda y cuál es su ventaja.
+
+## First steps with express
+
+Instalar express: `npm i express -E` express es una dependencia de producción, así que modo exacto.
+
+Primero, importamos express `const express = require('express')`
+Luego, creamos la aplicación con express `const app = express()`
+Luego el puerto `const PORT = process.env.PORT ?? 8000`
+`app.get ` esta basado en las rutas, lo que quiere decir es que la app y luego le decimos la accion, aqui le decimos el metodo get. En la app cada vez que reciba un get en la ruta '/', entonces quiero que me respondas y aqui tendriamos una funcion que seria la que responde cuando hace un get en esta ruta. 
+
+# 1:02:26
+
+Diferencias: no le he puesto el content-type y ha detectado que es un html. Express automaticamente va a detectar muchas veces cual es el content-type correcto que tiene que usar dependiendo de la respuesta que se este utilizando. Te va a quitar un monton de codigo.
+Si estamos poniendo que es un html, por defecto va a detectar que es un html.
+`res.send('<h1>mi pagina</h1>)`.
+
+Otras formas de devolver un JSON:
+
+`res.json({ message: 'Hola mundo' })` lo que dice por dentro es que, ya pasame le json que yo hago el stringify, ya le cambio el content-type y todo, entonces cuando entraes ya me esta devolviendo un json.
+
+Otra de las facilidades, por ejemplo la de las rutas: 
+# 1:04:32
+
+Quitar `X-Powered-By:` puede ser un problema de seguridad, por suerte solo aparece la tecnologia. Ademas si apareciese la version seria un problema muy grave. imaginate tener una version que tenga un bug critico.
+Para desactivarlo: 
+
+En la app:
+
+`const app = express()`
+`app.disable('x-powered-by)`
+
+# 1:07:47
